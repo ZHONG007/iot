@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class HelloController {
-    @GetMapping("/greeting")
+public class IndexController {
+    @GetMapping("/")
 
-    public String hello()//@RequestParam(name = "name") String name, Model model) 
+    public String index()//@RequestParam(name = "name") String name, Model model) 
     {
         //model.addAttribute("name", name);
-        return "hello";
+        return "index";
     }
 }
