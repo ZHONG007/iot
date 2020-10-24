@@ -1,5 +1,7 @@
 package com.iot.blog.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.iot.blog.controller.dto.AccessTokenDTO;
 import com.iot.blog.controller.dto.GithubUser;
 import com.iot.blog.provider.GithubProvider;
@@ -26,7 +28,8 @@ public class AuthorizeController {
     private String redirectUri;
 
     @GetMapping("/callback")
-    public String callback(@RequestParam(name = "code") String code, @RequestParam(name = "state") String state) {
+    public String callback(@RequestParam(name = "code") String code, @RequestParam(name = "state") String state,
+            HttpServletRequest request) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientsecret);
@@ -34,9 +37,16 @@ public class AuthorizeController {
         accessTokenDTO.setRedirect_uri(redirectUri);
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAcessToken(accessTokenDTO);
+        System.out.println(accessToken);
         GithubUser user = githubProvider.getUser(accessToken);
-        System.out.println(user.getName());
-        return "index";
+        //System.out.println(user.getLogin());
+        if (user != null) {
+            request.getSession().setAttribute("user", user);
+            return "redirect:/";
+        } else {
+            return "redirect:/";
+        }
+
     }
 
 }

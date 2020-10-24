@@ -5,6 +5,6 @@ spring:
       client:
         registration:
           github:
-            clientId: github-client-id
-            clientSecret: github-client-secret
+            client-id: 3ef15f92aa2e84ba5582
+            client-secret:     628d77ce0abf5b9f88264ace981d04c21510bb99
             redirect-uri: http://localhost:8080/callback

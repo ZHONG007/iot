@@ -1,16 +1,18 @@
 package com.iot.blog.controller.dto;
 
 public class GithubUser {
-    private String name;
+    private String login;
     private String bio;
     private Long id;
 
-    public String getName() {
-        return this.name;
+    public String getLogin() {
+
+
+        return this.login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getBio() {
@@ -28,5 +30,15 @@ public class GithubUser {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "GithubUser{" +
+            " login='" + login + '\'' +
+            ", bio='" + bio + 
+            ", id='" + id + '\'' +
+            '}';
+    }
+
 
 }
