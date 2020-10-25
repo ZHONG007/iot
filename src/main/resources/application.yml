@@ -8,3 +8,7 @@ spring:
             client-id: 3ef15f92aa2e84ba5582
             client-secret:     628d77ce0abf5b9f88264ace981d04c21510bb99
             redirect-uri: http://localhost:8080/callback
+  datasource:
+    url: jdbc:mysql://localhost:3306/DATABASE_NAME?useSSL=false&serverTimezone=UTC
+    username: USER_NAME
+    password: PASSWORD
